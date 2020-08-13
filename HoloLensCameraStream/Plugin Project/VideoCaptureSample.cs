@@ -91,6 +91,18 @@ namespace HoloLensCameraStream
             bitmap = frameReference.VideoMediaFrame.SoftwareBitmap;
         }
 
+        public float[] GetCameraIntrinsics()
+        {
+            var i = frameReference.VideoMediaFrame.CameraIntrinsics;
+            return new float[] {
+                i.ImageWidth, i.ImageHeight,
+                i.FocalLength.X, i.FocalLength.Y,
+                i.PrincipalPoint.X, i.PrincipalPoint.Y,
+                i.RadialDistortion.X, i.RadialDistortion.Y, i.RadialDistortion.Z,
+                i.TangentialDistortion.X, i.TangentialDistortion.Y
+            };
+        }
+
         /// <summary>
         /// If you need safe, long term control over the image bytes in this frame, they will need to be
         /// copied. You need to supply a byte[] to copy them into. It is best to pre-allocate and reuse

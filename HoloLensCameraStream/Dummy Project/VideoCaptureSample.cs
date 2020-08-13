@@ -16,6 +16,11 @@ namespace HoloLensCameraStream
 
         public CapturePixelFormat pixelFormat { get; private set; }
 
+        public float[] GetCameraIntrinsics()
+        {
+          throw new NotImplementedException();
+        }
+
         public void CopyRawImageDataIntoBuffer(byte[] byteBuffer)
         {
             throw new NotImplementedException();
